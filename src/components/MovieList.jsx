@@ -1,12 +1,12 @@
 import React from 'react';
 import Movie from "./Movie";
 
-const MovieList = ({movies}) => {
+const MovieList = ({movies, onSelectedMovie}) => {
 
     return (
-        <ul className="list">
+        <ul className="list list-movies">
             {movies?.map((movie) => (
-                <Movie movie={movie} key={movie.imdbID}/>
+                <Movie movie={movie} onSelectedMovie={onSelectedMovie} key={movie.imdbID}/>
             ))}
         </ul>
     );
