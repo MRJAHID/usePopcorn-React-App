@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Star from "./Star";
-import PropTypes from 'prop-types';
 
 
 const containerStyle = {
@@ -12,8 +11,6 @@ const containerStyle = {
 const starContainerStyle = {
     display: "flex",
 };
-
-
 
 
 const StarRating = ({maxRating = 5, color = '#fcc419', size = 42, className='', defaultRating=0, onSetRating}) => {
@@ -46,14 +43,6 @@ const StarRating = ({maxRating = 5, color = '#fcc419', size = 42, className='', 
     );
 };
 
-// eslint-disable-next-line react/no-typos
-StarRating.PropTypes = {
-    maxRating: PropTypes.number,
-    defaultRating: PropTypes.number,
-    color: PropTypes.string,
-    size: PropTypes.number,
-    className: PropTypes.string,
-    onSetRating: PropTypes.func,
-}
+
 
 export default StarRating;
