@@ -23,6 +23,8 @@ const MovieDetails = ({KEY, watched, selectedID, onCloseMovie, onAddWatched}) =>
         Genre: genre
     } = movie;
 
+
+
     function handleAdd() {
         const newWatchedMovie = {
             imdbID: selectedID,
