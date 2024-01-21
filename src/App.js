@@ -14,7 +14,7 @@ import MovieDetails from "./components/MovieDetails";
 const KEY = 'c873b0f1';
 
 export default function App() {
-    const [query, setQuery] = useState("viking");
+    const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
