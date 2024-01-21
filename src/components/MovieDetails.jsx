@@ -60,6 +60,19 @@ const MovieDetails = ({KEY, watched, selectedID, onCloseMovie, onAddWatched}) =>
         }
     }, [title]);
 
+    useEffect(function () {
+        function escapeMovieCallback(e) {
+            if (e.code === 'Escape') onCloseMovie();
+        }
+
+        document.addEventListener('keydown', escapeMovieCallback);
+
+        // Event Listener Clean Up Function
+        return function() {
+            document.removeEventListener('keydown', escapeMovieCallback);
+        }
+    }, [onCloseMovie]);
+
     return (
         <div className="details">
             {isLoading ? (

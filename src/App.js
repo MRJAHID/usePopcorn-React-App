@@ -28,6 +28,7 @@ export default function App() {
     function handleCloseMovie() {
         setSelectedID(null);
     }
+
     function handleAddWatched(movie) {
         setWatched(watched => [...watched, movie]);
     }
@@ -36,8 +37,10 @@ export default function App() {
         setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
     }
 
+
     useEffect(function () {
         const controller = new AbortController();
+
         async function fetchMovies() {
             try {
                 setIsLoading(true);
@@ -56,7 +59,7 @@ export default function App() {
                 setError('');
 
             } catch (e) {
-                if (e.name !== 'AbortError'){
+                if (e.name !== 'AbortError') {
                     setError(e.message);
                 }
             } finally {
@@ -71,7 +74,7 @@ export default function App() {
         }
 
         fetchMovies();
-        return function(){
+        return function () {
             controller.abort();
         };
     }, [query]);
@@ -90,11 +93,12 @@ export default function App() {
                 </Box>
                 <Box>
                     {
-                        selectedID ? <MovieDetails KEY={KEY} selectedID={selectedID} onCloseMovie={handleCloseMovie} watched={watched} onAddWatched={handleAddWatched}/>
+                        selectedID ? <MovieDetails KEY={KEY} selectedID={selectedID} onCloseMovie={handleCloseMovie}
+                                                   watched={watched} onAddWatched={handleAddWatched}/>
                             :
                             <>
                                 <WatchedSummary watched={watched}/>
-                                <WatchedMovieList watched={watched} onDeleteWatched={handleDeleteWatched} />
+                                <WatchedMovieList watched={watched} onDeleteWatched={handleDeleteWatched}/>
                             </>
                     }
                 </Box>
