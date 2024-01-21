@@ -76,7 +76,6 @@ export default function App() {
             </Navbar>
             <Main>
                 <Box>
-                    {/*{isLoading ? <Loader/> : <MovieList movies={movies}/>}*/}
                     {isLoading && <Loader/>}
                     {!isLoading && !error && <MovieList movies={movies} onSelectedMovie={handleSelectedMovie}/>}
                     {error && <ErrorMessage message={error}/>}
